@@ -1,13 +1,17 @@
 package com.dialer.contactschecker.configuration;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 
-public class WebInitialiser extends AbstractAnnotationConfigDispatcherServletInitializer {
 
+public class WebInitialiser extends AbstractAnnotationConfigDispatcherServletInitializer {
+	private static Logger logger = LoggerFactory.getLogger(WebInitialiser.class);
+	
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		System.out.println("*********************ROOT*******************************");
+		logger.info("[[[====================Initialization====================]]");
 		return new Class[] { AppConfiguration.class };
 	}
 
