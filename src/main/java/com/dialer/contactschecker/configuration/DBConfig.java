@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.dialer.contactschecker.util.AppEncrypt;
 
-@PropertySource(value = "classpath:application.properties", ignoreResourceNotFound = false)
+@PropertySource(value = "classpath:dev/application.properties", ignoreResourceNotFound = false)
 @EnableTransactionManagement
 @Configuration
 public class DBConfig {

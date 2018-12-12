@@ -8,6 +8,12 @@ public class User
 	private String usr_email;
 	private int usr_default_language;
 	
+	
+	
+	public User() {
+		super();
+	}
+
 	public int getUsr_id() 
 	{
 		return usr_id;
