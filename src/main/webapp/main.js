@@ -3153,7 +3153,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 var environment = {
     production: false,
-    apiUrl: 'http://localhost:8080/contactschecker/api'
+    apiUrl: '/contactschecker/api'
 };
 /*
  * In development mode, to ignore zone related error stack frames such as
