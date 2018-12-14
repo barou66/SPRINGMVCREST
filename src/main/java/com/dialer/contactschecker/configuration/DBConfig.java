@@ -31,7 +31,7 @@ public class DBConfig {
 			dataSource.setDriverClassName(env.getProperty("datasource.jdbc.driver"));
 			dataSource.setUrl(env.getProperty("datasource.jdbc.url"));
 			dataSource.setUsername(env.getProperty("datasource.jdbc.username"));
-			dataSource.setPassword(AppEncrypt.decryptDefault(env.getProperty("datasource.jdbc.password")));
+			dataSource.setPassword(env.getProperty("datasource.jdbc.password")/*AppEncrypt.decryptDefault(env.getProperty("datasource.jdbc.password"))*/);
 
 		} catch (Exception e) {
 			throw new RuntimeException(e);

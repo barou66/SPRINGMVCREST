@@ -48,7 +48,7 @@ public class UserController {
         }
         
         
-        user.setUsr_password(AppEncrypt.encryptDefault(user.getUsr_password()));
+        user.setUsr_password(user.getUsr_password()/*AppEncrypt.encryptDefault(user.getUsr_password())*/);
         currentUser = userService.updateUserProfile(user);
  
         return new ResponseEntity<User>(u, HttpStatus.OK);

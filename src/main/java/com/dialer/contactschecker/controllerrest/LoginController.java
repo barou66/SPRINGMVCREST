@@ -30,14 +30,14 @@ public class LoginController {
 	public ResponseEntity<User> getUser(@PathVariable("username") String username,
 			@PathVariable("password") String password) {
 
-		User user = loginService.login(username,AppEncrypt.encryptDefault(password));
+		User user = loginService.login(username,password/*AppEncrypt.encryptDefault(password)*/);
 		if (null != user) {
 
 			 logger.info("User Login is: {}",username);
 			return new ResponseEntity<User>(user, HttpStatus.OK);
 		}
 
-		return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<User>(HttpStatus.EXPECTATION_FAILED);
 	}
 
 }
