@@ -31,7 +31,7 @@ public class SipProvidersController {
 	
 	 //------------------- Create SIP --------------------------------------------------------//
 	@CrossOrigin(origins = AppConstants.CLIENT_ORIGIN)
-    @RequestMapping(value = "api/sipprovider/add", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "sipprovider/add", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void>  createSipProvider(@RequestBody SipProviders sipProvider,    UriComponentsBuilder ucBuilder){
     	
     	/*** AFTER WEBSERVICE INSERT HERE ***/
@@ -51,7 +51,7 @@ public class SipProvidersController {
     
      //------------------- Update SIP --------------------------------------------------------//
 	@CrossOrigin(origins = AppConstants.CLIENT_ORIGIN)
-    @RequestMapping(value = "api/sipprovider/{id}/update", method = RequestMethod.PUT)
+    @RequestMapping(value = "sipprovider/{id}/update", method = RequestMethod.PUT)
     public ResponseEntity<SipProviders> updateSipProvider(@PathVariable("id") String id,@RequestBody SipProviders sipProvider) {
 	        
 		SipProviders currentSip =  sipProvidersService.getById(id);
@@ -70,7 +70,7 @@ public class SipProvidersController {
 
    //-------------------Retrieve All SipProvider--------------------------------------------------------//  
 	@CrossOrigin(origins = AppConstants.CLIENT_ORIGIN)
-    @RequestMapping(value = "api/sipprovider/getall", method = RequestMethod.GET)
+    @RequestMapping(value = "sipprovider/getall", method = RequestMethod.GET)
     public ResponseEntity<List<SipProviders>> listAllSipProvider() {
     	
         List<SipProviders> sipProviders = sipProvidersService.getAll();
@@ -84,7 +84,7 @@ public class SipProvidersController {
     
     //------------------- Delete a SipProviders --------------------------------------------------------// 
 	@CrossOrigin(origins = AppConstants.CLIENT_ORIGIN)
-    @RequestMapping(value = "api/sipprovider/{id}/delete", method = RequestMethod.DELETE)
+    @RequestMapping(value = "sipprovider/{id}/delete", method = RequestMethod.DELETE)
     public ResponseEntity<SipProviders> deleteUser(@PathVariable("id") String id) {
         System.out.println("Fetching & Deleting User with id " + id);
  

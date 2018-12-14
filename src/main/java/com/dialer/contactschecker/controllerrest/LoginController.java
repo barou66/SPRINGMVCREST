@@ -26,7 +26,7 @@ public class LoginController {
 	private ILoginService loginService;
 	
 	@CrossOrigin(origins = AppConstants.CLIENT_ORIGIN)
-	@RequestMapping(value = "api/login/{username}/{password}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "login/{username}/{password}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<User> getUser(@PathVariable("username") String username,
 			@PathVariable("password") String password) {
 

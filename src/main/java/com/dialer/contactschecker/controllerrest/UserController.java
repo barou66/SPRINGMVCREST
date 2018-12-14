@@ -32,7 +32,7 @@ public class UserController {
 	
 	//------------------- Update a User --------------------------------------------------------//
 	@CrossOrigin(origins = AppConstants.CLIENT_ORIGIN)
-    @RequestMapping(value = "api/user/{id}/update", method = RequestMethod.PUT)
+    @RequestMapping(value = "user/{id}/update", method = RequestMethod.PUT)
     public ResponseEntity<User> updateUser(@PathVariable("id") long id,@RequestBody User user) {
 		
 		User u = loginService.getCurrentUser();

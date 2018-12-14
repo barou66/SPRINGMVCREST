@@ -1,0 +1,108 @@
+.marginBottom7 { margin-bottom: 7px; }
+.marginBottom10 { margin-bottom: 10px; }
+.marginBottom17 { margin-bottom: 17px; }
+.marginBottom20 { margin-bottom: 20px; }
+.marginBottom40 { margin-bottom: 40px; }
+.marginBottom400 { margin-bottom: 400px; }
+.marginLeft5 { margin-left: 5px; }
+.marginLeft10 { margin-left: 10px; }
+.marginTop7 { margin-top: 7px; }
+.marginTop10 { margin-top: 10px; }
+.marginTop20 { margin-top: 20px; }
+.marginTop40 { margin-top: 40px; }
+.marginTop70 { margin-top: 70px; }
+.noMargin { margin: 0 !important; }
+.noMarginBottom { margin-bottom: 0 !important; }
+.noPadding { padding: 0 !important; }
+.padding13 { padding: 13px; }
+.paddingBottom10 { padding-bottom: 10px; }
+.paddingBottom15 { padding-bottom: 15px; }
+.paddingRight15 { padding-right: 15px; }
+.paddingTop7 { padding-top: 7px; }
+
+
+/*******************************************
+            FORM
+*******************************************/
+.form-group {
+  font-size: 12px;
+  margin-bottom: 7px;
+}
+
+fieldset legend {
+  border: 0;
+  color: #0d8ddb;
+  width: inherit;
+  padding-top: 15px;
+}
+
+.legend-icon {
+  display: inline-block;
+  width: 18px;
+  height: 12px;
+  background: #8dccc4;
+  border-radius: 7px 0 7px 0;
+  -webkit-border-radius: 7px 0 7px 0;
+  -moz-border-radius: 7px 0 7px 0;
+}
+
+.bloc-limit {
+  margin: 20px 0 0 0;
+  padding: 0;
+  height: 2px;
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(239,239,239,1) 50%,rgba(255,255,255,1) 100%);
+}
+
+#bloc-submit, .bloc-submit {
+  padding: 20px 0;
+  text-align: center;
+}
+
+select::-ms-expand {
+  display: none;
+}
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+/* Arrow */
+.custom-select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 16px;
+  bottom: 0;
+  padding: 0 1em;
+  background: #77b636;
+  pointer-events: none;
+  color: #FFF;
+}
+/* Transition */
+.custom-select:hover::after {
+  color: #FFF;
+}
+.custom-select::after {
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+select option {
+  padding: 5px;
+}
+
+
+
+ul.list_error, .wrapper_error > ul {
+  padding: 0;
+}
+ul.list_error li, .wrapper_error > ul li {
+  list-style-type: none;
+  color: red;
+  text-align: left;
+}
+ul.list_error li::before, .wrapper_error > ul li::before {
+  content: '\03a7';
+  margin-right: 5px;
+  font-weight: bold;
+}
+

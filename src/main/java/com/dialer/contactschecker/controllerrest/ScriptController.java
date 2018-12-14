@@ -34,7 +34,7 @@ public class ScriptController {
 	// ---------------------------------------------------- Create VocalScript
 	// --------------------------------------------------------//
 	@CrossOrigin(origins = AppConstants.CLIENT_ORIGIN)
-	@RequestMapping(value = "api/vocalscript/add", method = RequestMethod.POST)
+	@RequestMapping(value = "vocalscript/add", method = RequestMethod.POST)
 	public ResponseEntity<Void> createVocalScript(@RequestParam("vscDialPlanNumber") int vscDialPlanNumber,
 			@RequestParam("vscName") String vscName, @RequestParam("vscType") int vscType,
 			@RequestParam("vscScript") String vscScript,
@@ -89,7 +89,7 @@ public class ScriptController {
 	// ------------------------ Retrieve All VocalScript
 	// ------------------------------//
 	@CrossOrigin(origins = AppConstants.CLIENT_ORIGIN)
-	@RequestMapping(value = "api/vocalscript/getall", method = RequestMethod.GET)
+	@RequestMapping(value = "vocalscript/getall", method = RequestMethod.GET)
 	public ResponseEntity<List<VocalScript>> listAllVocalScript() {
 
 		List<VocalScript> vocalScripts = vocalScriptService.getAll();

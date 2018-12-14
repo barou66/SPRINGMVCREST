@@ -23,7 +23,7 @@ public class DialerSettingController {
 	private IDialerSettingService dialerSettingService;
 	
 	@CrossOrigin(origins = AppConstants.CLIENT_ORIGIN)
-	@RequestMapping(value = "api/dialer/update", method = RequestMethod.PUT)
+	@RequestMapping(value = "dialer/update", method = RequestMethod.PUT)
 	public ResponseEntity<DialerSetting> updateDialerSetting(@RequestBody DialerSetting dialerSetting) {
 	
 		boolean statut = dialerSettingService.updateDialerSettings(dialerSetting);
@@ -37,7 +37,7 @@ public class DialerSettingController {
 	}
 	
 	@CrossOrigin(origins = AppConstants.CLIENT_ORIGIN)
-    @RequestMapping(value = "api/dialer/getsettings", method = RequestMethod.GET)
+    @RequestMapping(value = "dialer/getsettings", method = RequestMethod.GET)
     public ResponseEntity<DialerSetting> getDialerSetting() {
     	
 		DialerSetting ds = dialerSettingService.getDialerSettings();
