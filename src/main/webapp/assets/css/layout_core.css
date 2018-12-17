@@ -6,6 +6,7 @@
 .marginBottom400 { margin-bottom: 400px; }
 .marginLeft5 { margin-left: 5px; }
 .marginLeft10 { margin-left: 10px; }
+.marginLeftClose {  margin-left: 500px;}
 .marginTop7 { margin-top: 7px; }
 .marginTop10 { margin-top: 10px; }
 .marginTop20 { margin-top: 20px; }
@@ -58,51 +59,8 @@ fieldset legend {
   text-align: center;
 }
 
-select::-ms-expand {
-  display: none;
+.btn-cancel {
+  background-color : white;
+  border-color: #4cb5e7;
+  color: #4cb5e7;
 }
-select:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
-}
-/* Arrow */
-.custom-select::after {
-  content: '\25BC';
-  position: absolute;
-  top: 0;
-  right: 16px;
-  bottom: 0;
-  padding: 0 1em;
-  background: #77b636;
-  pointer-events: none;
-  color: #FFF;
-}
-/* Transition */
-.custom-select:hover::after {
-  color: #FFF;
-}
-.custom-select::after {
-  -webkit-transition: .25s all ease;
-  -o-transition: .25s all ease;
-  transition: .25s all ease;
-}
-select option {
-  padding: 5px;
-}
-
-
-
-ul.list_error, .wrapper_error > ul {
-  padding: 0;
-}
-ul.list_error li, .wrapper_error > ul li {
-  list-style-type: none;
-  color: red;
-  text-align: left;
-}
-ul.list_error li::before, .wrapper_error > ul li::before {
-  content: '\03a7';
-  margin-right: 5px;
-  font-weight: bold;
-}
-

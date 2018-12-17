@@ -12,17 +12,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebMvc
 @ComponentScan(basePackages = "com.dialer.contactschecker")
 public class AppConfiguration implements WebMvcConfigurer {
-
-	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		// TODO Auto-generated method stub
-		registry.addResourceHandler("/app/**").addResourceLocations("/app/");
-
-	}
 	
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-	    registry.addViewController("/").setViewName("forward:/index.html");
+	    registry.addViewController("/**").setViewName("forward:/index.html");
 	}
 
 
