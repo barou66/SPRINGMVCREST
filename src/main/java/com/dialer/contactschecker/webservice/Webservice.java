@@ -2,16 +2,17 @@ package com.dialer.contactschecker.webservice;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
-
-
-import net.sf.json.JSONObject;
+import java.net.URLEncoder;
+import java.util.Properties;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.HttpHostConnectException;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.slf4j.Logger;
@@ -24,22 +25,64 @@ import org.springframework.stereotype.Service;
 import com.dialer.contactschecker.model.SipProviders;
 import com.dialer.contactschecker.model.VocalScript;
 
-import org.apache.http.conn.HttpHostConnectException;
+import net.sf.json.JSONObject;
 
 
 @Service
-@PropertySource(value = "classpath:contactlistchecker.properties", ignoreResourceNotFound = false)
+@PropertySource(value = "classpath:/contactlistchecker.properties", ignoreResourceNotFound = false)
 public class Webservice {
 
 	private static Logger logger = LoggerFactory.getLogger(Webservice.class);
-	
+	private String addSipAddress;
 	@Autowired
 	private Environment env;
+	
+	{
+		InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("contactlistchecker.properties");
+		Properties properties = new Properties();
+		
+		try 
+		{
+			properties.load(inputStream);
+			addSipAddress = properties.getProperty("add_sip_address");
+			/*modifySipAddress = properties.getProperty("mod_sip_address");
+			delSipAddress = properties.getProperty("del_sip_address");
+			makSipAddress = properties.getProperty("mak_sip_address");
+			excSipAddress = properties.getProperty("exc_sip_address");
+			addIvrAddress = properties.getProperty("add_ivr_address");
+			modifyIvrAddress = properties.getProperty("mod_ivr_address");
+			delIvrAddress = properties.getProperty("del_ivr_address");
+			RecordingPath = properties.getProperty("RecordingPath");
+			if(!RecordingPath.endsWith("/"))
+				RecordingPath=RecordingPath+"/";
+			if(properties.containsKey(InetAddress.getLocalHost().getHostName()+"_bg_color"))
+				backgroundColor = properties.getProperty(InetAddress.getLocalHost().getHostName()+"_bg_color");
+			else
+				backgroundColor = properties.getProperty("background_color");*/
+			
+		} 
+		catch (IOException e)
+		{
+			logger.error("Can't load 'contactlistchecker.properties' file!",e);
+		}
+		finally
+		{
+			try 
+			{
+				inputStream.close();
+			}
+			catch (IOException e)
+			{
+				logger.error("Can't close inputstream 'contactlistchecker.properties'",e);
+			}
+		}
+		
+	}
 
 	public boolean addSIPWebservice(SipProviders sipProvider)
 			throws ClientProtocolException, IOException, HttpHostConnectException {
 		HttpClient httpClient = HttpClientBuilder.create().build();
-		HttpPost httpPost = new HttpPost(env.getProperty("add_sip_address"));
+		HttpPost httpPost = new HttpPost(addSipAddress);  
 		JSONObject json = new JSONObject();
 		json.put("Authorization_Username", sipProvider.getPVD_AUTHORIZATIONUSERNAME());
 		json.put("Caller_Id", sipProvider.getPVD_CALLERID());
@@ -88,7 +131,7 @@ public class Webservice {
 		JSONObject json = new JSONObject();
 		json.put("Authorization_Username", sipProvider.getPVD_AUTHORIZATIONUSERNAME());
 		json.put("Caller_Id", sipProvider.getPVD_CALLERID());
-		json.put("Concurrent_Calls", sipProvider.getPVD_CONCURRENTCALLS().toString()); // May be STRing
+		json.put("Concurrent_Calls", sipProvider.getPVD_CONCURRENTCALLS()); // May be STRing
 		json.put("Login", sipProvider.getPVD_LOGIN());
 		json.put("Password", sipProvider.getPVD_PASSWORD());
 		json.put("Port", sipProvider.getPVD_SIPSERVERPORT().toString());// May be STRing

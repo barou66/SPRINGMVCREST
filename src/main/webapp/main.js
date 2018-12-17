@@ -2884,7 +2884,7 @@ var ListSipComponent = /** @class */ (function () {
             .afterClosed().subscribe(function (res) {
             if (res) {
                 _this.sipService.deleteSipProviders(sipId).subscribe(function (sip) {
-                    _this.alertService.success('le fournisseur               a été supprimer avec succès.', true);
+                    _this.alertService.success('le fournisseur a été supprimer avec succès.', true);
                     _this.dataSipService.notifySubscribers();
                 }, function (error) {
                     _this.alertService.error(error);
